@@ -1,13 +1,15 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quiz Hunters</title>
-  </head>
 
-  <body>
-    <div class="center-container">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Quiz Hunters</title>
+</head>
+
+<body>
+  <div class="center-container">
+    <form name="quiz" onsubmit="return val()">
       <h1>Welcome to Quiz Hunters</h1>
       <p>
         We present to you quizzes that are entertaining, informative and funny
@@ -47,18 +49,21 @@
           </li>
         </ol>
         <div class="submit">
-        <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" />
+        </div>
       </div>
-      </div>
-    </div>
-  </body>
+    </form>
+  </div>
+</body>
+
 </html>
 
 <style>
-  body{
+  body {
     background: url("https://www.leadquizzes.com/wp-content/uploads/2019/02/New-blog-graphic.jpg");
     background-size: 100% 100%;
   }
+
   .center-container {
     text-align: center;
     display: block;
@@ -67,12 +72,38 @@
     height: 100%;
     margin: 0 auto;
     background-color: aliceblue;
-    
+
   }
-  .Questions{
+
+  .Questions {
     text-align: left;
   }
-  .submit{
+
+  .submit {
     text-align: center;
   }
 </style>
+<script>
+  function val() {
+    correct = 0
+    wrong = 0
+    var ans1 = document.quiz.q1.value;
+    if (ans1 === "True") {
+      correct = correct + 1
+    }
+    var ans2 = document.quiz.q2.value;
+    if (ans2 === "5days") {
+      correct = correct + 1
+    }
+    var ans3 = document.quiz.q3.value;
+    if (ans3 === "Tuesday") {
+      correct = correct + 1
+    }
+    var ans4 = document.quiz.q4.value;
+    if (ans4 === "Donkey") {
+      correct = correct + 1
+    }
+    alert("Number of Correct Answers: " + correct + "\n" + "Number of Wrong Answers: " + (4 - correct) + "\n" + "Score: " + (10 * correct));
+    //  return false;
+  };
+</script>
